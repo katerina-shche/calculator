@@ -1,5 +1,27 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+html, body {
+ width: 100vw;
+ height: 100vh;
+}
+
+#App {
+  background: rgb(206, 227, 245);
+  width: 100vw;
+  height: 100vh;
+  padding: 1px;
 }
 
 
+#calculator {
+  display: flex;
+  flex-flow: column nowrap;
+  background-color: dimgray;
+  width: 400px;
+  height: 600px;
+  margin: calc(50vh - 300px) auto;
+
+}
