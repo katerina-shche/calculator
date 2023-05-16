@@ -6,7 +6,7 @@ function App() {
   return (
     <div id="App">
       <div id='calculator'>
-        <div id='display'> 12-34+56x78/90=
+        <div id='display'> 12-3.4+56*78/90=
           <div id='input'></div>
           <div id='output'></div>
         </div>
