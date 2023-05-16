@@ -1,17 +1,20 @@
 //styles
+import { useState } from 'react';
 import './App.css';
 
 
 function App() {
+  const [input, setInput] = useState('12-3.4+56*78/90=')
+  const [output, setOutput] = useState(0)
   return (
     <div id="App">
       <div id='calculator'>
-        <div id='display'> 12-3.4+56*78/90=
-          <div id='input'></div>
-          <div id='output'></div>
+        <div id='display'> 
+          <div id='input'>{input}</div>
+          <div id='output'>{output}</div>
         </div>
         <div id='buttons'>
-          <button id='clear'>AC</button>
+          <button id='clear' >AC</button>
           <button id='divide'>/</button>
           <button id='multiply'>x</button>
           <button id='seven'>7</button>
