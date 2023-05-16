@@ -1,10 +1,12 @@
+//styles
 import './App.css';
+
 
 function App() {
   return (
     <div id="App">
       <div id='calculator'>
-        <div id='display'> display
+        <div id='display'> 12-34+56x78/90=
           <div id='input'></div>
           <div id='output'></div>
         </div>
