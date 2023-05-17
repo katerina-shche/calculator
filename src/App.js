@@ -5,7 +5,7 @@ import './App.css';
 
 
 function App() {
-  const [input, setInput] = useState('=bhj')
+  const [input, setInput] = useState('0')
   const [output, setOutput] = useState(0)
 
   const handleClear = () => {
@@ -13,7 +13,7 @@ function App() {
     setOutput(0)
   }
   const handleInput = (e) => {
-    //* why it doesnot work????????
+   console.log(input.slice(-1))
    if ((/=/g).test(input)) {
       setInput(e.target.value)
       setOutput(e.target.value)
