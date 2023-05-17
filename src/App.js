@@ -5,7 +5,7 @@ import './App.css';
 
 
 function App() {
-  const [input, setInput] = useState('')
+  const [input, setInput] = useState('=bhj')
   const [output, setOutput] = useState(0)
 
   const handleClear = () => {
@@ -14,22 +14,21 @@ function App() {
   }
   const handleInput = (e) => {
     //* why it doesnot work????????
-    if ((/=/g).test(input)) {
-      console.log('hey there' + input)
-      setInput('')
-      setOutput(0)
-      console.log('it works' + input)
-    }
-
-    setInput(input+e.target.value)
-    if (e.target.value.match(/\d/)) {
-    setOutput((input+e.target.value).match(/\d+$/))
-    } else {setOutput(e.target.value)}
+   if ((/=/g).test(input)) {
+      setInput(e.target.value)
+      setOutput(e.target.value)
+    } else {
+        setInput(input+e.target.value)
+        if (e.target.value.match(/\d/)) {
+        setOutput((input+e.target.value).match(/\d+$/))
+        } else {setOutput(e.target.value)}
+      }
   }
 
   const handleEquals = (e) => {
-    setInput(input+e.target.value)
-    setOutput(evaluate(input))
+    let equals = evaluate(input)
+    setInput(input+e.target.value+equals)
+    setOutput(equals)
   }
 
   return (
