@@ -38,18 +38,32 @@ html, body {
   color: white;
   font-size: 2rem;
   text-align: right;
+  display: flex;
+  flex-flow: column nowrap;
 }
 #input, #output {
+  width: calc(100% - 4px);
   display: block;
   margin: 2px;
   border: 1px rgba(253, 253, 0, 0.01) solid;
 }
+#input {
+  font-size: 24px;
+  color: rgb(230, 250, 94);
+  height: 45%;
+}
+#output {
+  font-size: 40px;
+  height: 55%
+}
 #author {
   margin: calc(-50vh + 310px) auto;
   width: fit-content;
+  font-family: 'Quicksand', sans;
+  font-weight: 1000; 
+  text-align: center;
 }
 #buttons {
-  
   width: 400px;
   height: 500px;
   margin: 6px;
@@ -66,7 +80,12 @@ button {
   border-radius: 50px;
   font-size: 2rem;
   color: white;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: 'Quicksand', sans;
+  font-weight: 700;
+  cursor: pointer;
+}
+button:hover {
+  border: 1px outset;
 }
 #clear, #zero {
   width: 200px;
