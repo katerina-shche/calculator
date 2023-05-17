@@ -19,8 +19,8 @@ function App() {
       setOutput(e.target.value)
     } else {
         setInput(input+e.target.value)
-        if (e.target.value.match(/\d/)) {
-        setOutput((input+e.target.value).match(/\d+$/))
+        if (e.target.value.match(/[\d.]/)) {
+        setOutput((input+e.target.value).match(/[\d.]+$/))
         } else {setOutput(e.target.value)}
       }
   }

@@ -46,6 +46,7 @@ html, body {
   display: block;
   margin: 2px;
   border: 1px rgba(253, 253, 0, 0.01) solid;
+  overflow: hidden;
 }
 #input {
   font-size: 24px;
