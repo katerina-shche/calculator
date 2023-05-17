@@ -13,6 +13,7 @@ function App() {
     setOutput(0)
   }
   const handleInput = (e) => {
+    //* why it doesnot work????????
     if ((/=/g).test(input)) {
       console.log('hey there' + input)
       setInput('')
