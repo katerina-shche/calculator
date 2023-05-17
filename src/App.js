@@ -26,9 +26,15 @@ function App() {
   }
 
   const handleEquals = (e) => {
-    let equals = evaluate(input)
-    setInput(input+e.target.value+equals)
-    setOutput(equals)
+    if (input === '') {
+      setOutput(0)
+    } else if (!input.includes('=')) {
+      let equals = evaluate(input)  
+      setInput(input+e.target.value+equals)
+      setOutput(equals)
+  } else {
+    console.log('error: multipal "=" is not allowed')
+  }
   }
 
   return (
