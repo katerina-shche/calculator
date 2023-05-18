@@ -25,7 +25,10 @@ function App() {
   const handleOperator = (e) => {
     if (e.target.value !== '-' && input === '') {
       console.log('this operator is not alowed now')
-    }  else if ((/[+\-*/.]/g).test(input.slice(-1))) {
+    } else if ((/[+/-*/]/g).test(input.slice(-1)) && e.target.value === '-') {
+      setInput(input+e.target.value)
+      setOutput(e.target.value)
+    } else if ((/[+\-*/.]/g).test(input.slice(-1))) {
       setInput(input.slice(0, -1)+e.target.value)
       setOutput(e.target.value)
     } else {
