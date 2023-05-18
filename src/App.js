@@ -5,7 +5,7 @@ import './App.css';
 
 
 function App() {
-  const [input, setInput] = useState('0')
+  const [input, setInput] = useState('')
   const [output, setOutput] = useState('0')
 
   const handleClear = () => {
@@ -18,11 +18,16 @@ function App() {
       setOutput(e.target.value)
     } else {
         setInput(input+e.target.value)
-        if (e.target.value.match(/[\d.]/)) {
         setOutput((input+e.target.value).match(/[\d.]+$/))
-        } else {setOutput(e.target.value)}
       }
   }
+
+  const handleOperator = (e) => {
+    setInput(input+e.target.value)
+    setOutput(e.target.value)
+  }
+
+
   const handleDecimal = () => {
     if ((input === '') || input.includes('=')) {
       setInput('0.')
@@ -56,16 +61,16 @@ function App() {
         </div>
         <div id='buttons'>
           <button id='clear' value='AC' onClick={handleClear}>AC</button>
-          <button id='divide'value='/' onClick={handleInput}>/</button>
-          <button id='multiply'value='*' onClick={handleInput}>x</button>
+          <button id='divide'value='/' onClick={handleOperator}>/</button>
+          <button id='multiply'value='*' onClick={handleOperator}>x</button>
           <button id='seven'value='7' onClick={handleInput}>7</button>
           <button id='eight'value='8' onClick={handleInput}>8</button>
           <button id='nine'value='9' onClick={handleInput}>9</button>
-          <button id='substruct'value='-' onClick={handleInput}>-</button>
+          <button id='substruct'value='-' onClick={handleOperator}>-</button>
           <button id='four'value='4' onClick={handleInput}>4</button>
           <button id='five'value='5' onClick={handleInput}>5</button>
           <button id='six'value='6' onClick={handleInput}>6</button>
-          <button id='add'value='+' onClick={handleInput}>+</button>
+          <button id='add'value='+' onClick={handleOperator}>+</button>
           <button id='one'value='1' onClick={handleInput}>1</button>
           <button id='two'value='2' onClick={handleInput}>2</button>
           <button id='three'value='3' onClick={handleInput}>3</button>
