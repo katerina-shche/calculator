@@ -26,7 +26,7 @@ function App() {
   const handleDecimal = () => {
     console.log(typeof output) 
     console.log(output.toString().includes('.'))
-    if (!output.toString().includes('.') && output.slice(-1)[0].match(/\d/)) {
+    if ((input !== '') && !output.toString().includes('.') && output.slice(-1)[0].match(/\d/)) {
       setInput(input+'.')
       setOutput(output+'.')
     } else { console.log('dot is not allowed now')
