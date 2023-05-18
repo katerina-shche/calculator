@@ -6,14 +6,13 @@ import './App.css';
 
 function App() {
   const [input, setInput] = useState('0')
-  const [output, setOutput] = useState(0)
+  const [output, setOutput] = useState('0')
 
   const handleClear = () => {
     setInput('')
-    setOutput(0)
+    setOutput('0')
   }
   const handleInput = (e) => {
-   console.log(input.slice(-1))
    if ((/=/g).test(input)) {
       setInput(e.target.value)
       setOutput(e.target.value)
@@ -24,16 +23,26 @@ function App() {
         } else {setOutput(e.target.value)}
       }
   }
+  const handleDecimal = () => {
+    console.log(typeof output) 
+    console.log(output.toString().includes('.'))
+    if (!output.toString().includes('.') && output.slice(-1)[0].match(/\d/)) {
+      setInput(input+'.')
+      setOutput(output+'.')
+    } else { console.log('dot is not allowed now')
+            }
 
+  }
   const handleEquals = (e) => {
-    if (input === '') {
-      setOutput(0)
+    if (input === '' || input === '.') {
+      setOutput('0')
+      setInput('')
     } else if (!input.includes('=')) {
       let equals = evaluate(input)  
       setInput(input+e.target.value+equals)
       setOutput(equals)
   } else {
-    console.log('error: multipal "=" is not allowed')
+    console.log('equals is not allowed now')
   }
   }
 
@@ -60,7 +69,7 @@ function App() {
           <button id='two'value='2' onClick={handleInput}>2</button>
           <button id='three'value='3' onClick={handleInput}>3</button>
           <button id='zero'value='0' onClick={handleInput}>0</button>
-          <button id='decimal'value='.' onClick={handleInput}>.</button>
+          <button id='decimal'value='.' onClick={handleDecimal}>.</button>
           <button id='equals'value='=' onClick={handleEquals}>=</button>
         </div>
       </div>
