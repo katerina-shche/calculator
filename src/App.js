@@ -5,16 +5,19 @@ import './App.css';
 
 
 function App() {
-  const [input, setInput] = useState('')
+  const [input, setInput] = useState('0')
   const [output, setOutput] = useState('0')
 
   const handleClear = () => {
-    setInput('')
+    setInput('0')
     setOutput('0')
   }
   const handleInput = (e) => {
    if ((/=/g).test(input)) {
       setInput(e.target.value)
+      setOutput(e.target.value)
+    } else if ((/^0(?!\.)/g).test(output)) {
+      setInput(input.slice(0, -1)+e.target.value)
       setOutput(e.target.value)
     } else {
         setInput(input+e.target.value)
@@ -24,6 +27,8 @@ function App() {
 
   const handleOperator = (e) => {
     if (e.target.value !== '-' && input === '') {
+      console.log('this operator is not alowed now')
+    } else if ((/[+\-*/]\-/g).test(input)) {
       console.log('this operator is not alowed now')
     } else if ((/[+\-*/]/g).test(input.slice(-1)) && e.target.value === '-') {
       setInput(input+e.target.value)
