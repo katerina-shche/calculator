@@ -26,10 +26,14 @@ function App() {
   }
 
   const handleOperator = (e) => {
-    if (e.target.value !== '-' && input === '') {
+    if ((/=/g).test(input)) {
+      setInput(output+e.target.value)
+      setOutput(e.target.value)
+    } else if (e.target.value !== '-' && input === '') {
       console.log('this operator is not alowed now')
     } else if ((/[+\-*/]\-/g).test(input)) {
-      console.log('this operator is not alowed now')
+      setInput(input.slice(0, -2)+e.target.value)
+      setOutput(e.target.value)
     } else if ((/[+\-*/]/g).test(input.slice(-1)) && e.target.value === '-') {
       setInput(input+e.target.value)
       setOutput(e.target.value)
@@ -70,9 +74,9 @@ function App() {
   return (
     <div id="App">
       <div id='calculator'>
-        <div id='display'> 
+        <div id='screen'> 
           <div id='input'>{input}</div>
-          <div id='output'>{output}</div>
+          <div id='display'>{output}</div>
         </div>
         <div id='buttons'>
           <button id='clear' value='AC' onClick={handleClear}>AC</button>
@@ -81,7 +85,7 @@ function App() {
           <button id='seven'value='7' onClick={handleInput}>7</button>
           <button id='eight'value='8' onClick={handleInput}>8</button>
           <button id='nine'value='9' onClick={handleInput}>9</button>
-          <button id='substruct'value='-' onClick={handleOperator}>-</button>
+          <button id='subtract'value='-' onClick={handleOperator}>-</button>
           <button id='four'value='4' onClick={handleInput}>4</button>
           <button id='five'value='5' onClick={handleInput}>5</button>
           <button id='six'value='6' onClick={handleInput}>6</button>

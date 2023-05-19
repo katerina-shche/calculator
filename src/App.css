@@ -29,7 +29,7 @@ html, body {
   height: 600px;
   margin: calc(50vh - 300px) auto;
 }
-#display {
+#screen {
   background-color: rgb(4, 29, 32);
   width: 400px;
   height: 194px;
@@ -105,6 +105,6 @@ button:hover {
 #equals {
   background-color: rgb(72, 141, 219);
 }
-#divide, #multiply, #substruct, #add {
+#divide, #multiply, #subtract, #add {
   background-color: rgb(89, 110, 136);
 }
