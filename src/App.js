@@ -31,7 +31,7 @@ function App() {
       setOutput(e.target.value)
     } else if (e.target.value !== '-' && input === '') {
       console.log('this operator is not alowed now')
-    } else if ((/[+\-*/]\-/g).test(input)) {
+    } else if ((/[+\-*/]-/g).test(input)) {
       setInput(input.slice(0, -2)+e.target.value)
       setOutput(e.target.value)
     } else if ((/[+\-*/]/g).test(input.slice(-1)) && e.target.value === '-') {
